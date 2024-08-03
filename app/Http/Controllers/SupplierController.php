@@ -2,60 +2,96 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
-    // Menampilkan daftar supplier
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $suppliers = Supplier::all();
-        return view('suppliers.index', compact('suppliers'));
+        $supplier = Supplier::all();
+        return view('supplier.index', compact('supplier'));
     }
 
-    // Menampilkan form untuk membuat supplier baru
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
-        return view('suppliers.create');
+        $barang = Barang::all();
+        return view('supplier.create', compact('barang'));
     }
 
-    // Menyimpan supplier baru ke database
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         $request->validate([
             'nama_supplier' => 'required|max:150',
-            'alamat' => 'required',
-            'no_hp' => 'required|max:15',
+            'alamat' => 'required|string',
+            'no_hp' => 'required|numeric',
+            'id_barang' => 'required|exists:barang,id_barang',
         ]);
 
         Supplier::create($request->all());
-        return redirect()->route('suppliers.index')->with('success', 'Supplier berhasil ditambahkan.');
+        return redirect()->route('supplier.index')->with('success', 'Supplier Berhasil ditambahkan');
     }
 
-    // Menampilkan form untuk mengedit supplier
+    /**
+     * Display the specified resource.
+     */
+    public function show(Supplier $supplier)
+    {
+        return view('supplier.show', compact('supplier'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
     public function edit(Supplier $supplier)
     {
-        return view('suppliers.edit', compact('supplier'));
+        $barang = Barang::all();
+        return view('supplier.update', compact('supplier', 'barang'));
     }
 
-    // Memperbarui data supplier di database
+    /**
+     * Update the specified resource in storage.
+     */
     public function update(Request $request, Supplier $supplier)
     {
         $request->validate([
             'nama_supplier' => 'required|max:150',
-            'alamat' => 'required',
-            'no_hp' => 'required|max:15'
+            'alamat' => 'required|max:255',
+            'no_hp' => 'required|numeric',
+            'id_barang' => 'required|exists:barang,id_barang',
         ]);
 
         $supplier->update($request->all());
-        return redirect()->route('suppliers.index')->with('success', 'Supplier berhasil diperbarui.');
+        return redirect()->route('supplier.index')->with('success', 'Supplier berhasil diperbarui.');
     }
 
-    // Menghapus supplier dari database
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy(Supplier $supplier)
     {
         $supplier->delete();
-        return redirect()->route('suppliers.index')->with('success', 'Supplier berhasil dihapus.');
+        return redirect()->route('supplier.index')->with('suces', 'Supplier berhasil dihapus.');
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Lakukan logika pencarian sesuai kebutuhan Anda
+        $results = Supplier::where('nama_supplier', 'like', '%' . $query . '%')->get();
+
+        // Kembalikan hasil pencarian ke view
+        return view('supplier.search_results', ['results' => $results]);
     }
 }

@@ -7,59 +7,92 @@ use Illuminate\Http\Request;
 
 class BarangController extends Controller
 {
-    // Menampilkan daftar barang
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $barangs = Barang::all();
-        return view('barangs.index', compact('barangs'));
+        $barang = Barang::all();
+        return view('barang.index', compact('barang'));
     }
 
-    // Menampilkan form untuk membuat barang baru
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
-        return view('barangs.create');
+        return view('barang.create');
     }
 
-    // Menyimpan barang baru ke database
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         $request->validate([
+            'id_barang',
             'nama_barang' => 'required|max:150',
             'merek' => 'required|max:100',
             'harga' => 'required|integer',
             'stok' => 'required|integer',
-            'satuan' => 'required|max:10',
+            'satuan' => 'required|max:10'
         ]);
 
         Barang::create($request->all());
-        return redirect()->route('barangs.index')->with('success', 'Barang berhasil ditambahkan.');
+        return redirect()->route('barang.index')->with('success', 'Barang Berhasil ditambahkan');
     }
 
-    // Menampilkan form untuk mengedit barang
+    /**
+     * Display the specified resource.
+     */
+    public function show(Barang $barang)
+    {
+        return view('barang.show', compact('barang'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
     public function edit(Barang $barang)
     {
-        return view('barangs.edit', compact('barang'));
+        return view('barang.update', compact('barang'));
     }
 
-    // Memperbarui data barang di database
+    /**
+     * Update the specified resource in storage.
+     */
     public function update(Request $request, Barang $barang)
     {
         $request->validate([
+            'id_barang',
             'nama_barang' => 'required|max:150',
             'merek' => 'required|max:100',
             'harga' => 'required|integer',
             'stok' => 'required|integer',
-            'satuan' => 'required|max:10',
+            'satuan' => 'required|max:10'
         ]);
 
         $barang->update($request->all());
-        return redirect()->route('barangs.index')->with('success', 'Barang berhasil diperbarui.');
+        return redirect()->route('barang.index')->with('success', 'Barang berhasil diperbarui.');
     }
 
-    // Menghapus barang dari database
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy(Barang $barang)
     {
         $barang->delete();
-        return redirect()->route('barangs.index')->with('success', 'Barang berhasil dihapus.');
+        return redirect()->route('barang.index')->with('suces', 'Barang berhasil dihapus.');
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Lakukan logika pencarian sesuai kebutuhan Anda
+        $results = Barang::where('nama_barang', 'like', '%' . $query . '%')->get();
+
+        // Kembalikan hasil pencarian ke view
+        return view('barang.search_results', ['results' => $results]);
     }
 }
