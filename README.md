@@ -12,3 +12,6 @@
 
 ##Dashboard Customer Table Customer
 ![alt text](public/img/Dashboard_Customer_tableCustomer.PNG?raw=true)
+
+##Dashboard Customer Table Kendaraan
+![alt text](public/img/Dashboard_Customer_tableKendaraan.PNG?raw=true)
