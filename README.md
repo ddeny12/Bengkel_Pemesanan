@@ -2,7 +2,7 @@
 ![alt text](public/img/home.PNG?raw=true)
 
 ##Register
-![alt text](public/img/register.PNG?raw=true)
+![alt text](public/img/Register.PNG?raw=true)
 
 ##LoginSbgi_Customer
 ![alt text](public/img/login_sbgicustomer.PNG?raw=true)
