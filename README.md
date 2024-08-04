@@ -17,7 +17,7 @@
 ![alt text](public/img/Dashboard_Customer_tableKendaraan.PNG?raw=true)
 
 ##LoginSbgi_Admin
-![alt text](public/img/Login_sbgiAdmin?raw=true)
+![alt text](public/img/Login_sbgiAdmin.PNG?raw=true)
 
 ##Dashboard Admin
 ![alt text](public/img/Dashboard_Admin?raw=true)
