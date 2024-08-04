@@ -9,3 +9,6 @@
 
 ##Dashboard Customer Table Keluhan
 ![alt text](public/img/Dashboard_Customer_tableKeluhan.PNG?raw=true)
+
+##Dashboard Customer Table Customer
+![alt text](public/img/Dashboard_Customer_tableCustomer.PNG?raw=true)
