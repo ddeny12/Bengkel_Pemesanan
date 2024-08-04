@@ -6,3 +6,6 @@
 
 ##LoginSbgi_Customer
 ![alt text](public/img/Login_sbgiCustomer.PNG?raw=true)
+
+##Dashboard Customer Table Keluhan
+![alt text](public/img/Dashboard_Customer_tableKeluhan.PNG?raw=true)
