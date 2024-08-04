@@ -24,3 +24,6 @@
 
 ##Dashboard Admin Table Customer
 ![alt text](public/img/Dashboard_Admin_tableCustomer.PNG?raw=true)
+
+##Dashboard Admin Table Kendaraan
+![alt text](public/img/Dashboard_Admin_tableKendaraan.PNG?raw=true)
