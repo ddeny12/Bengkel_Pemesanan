@@ -5,4 +5,4 @@
 ![alt text](public/img/Register.PNG?raw=true)
 
 ##LoginSbgi_Customer
-![alt text](public/img/login_sbgicustomer.PNG?raw=true)
+![alt text](public/img/Login_sbgiCustomer.PNG?raw=true)
