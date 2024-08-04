@@ -23,4 +23,4 @@
 ![alt text](public/img/Dashboard_Admin.PNG?raw=true)
 
 ##Dashboard Admin Table Customer
-![alt text](public/img/Dashboard_Admin table customer.PNG?raw=true)
+![alt text](public/img/Dashboard_Admin_tableCustomer.PNG?raw=true)
