@@ -27,3 +27,12 @@
 
 ##Dashboard Admin Table Kendaraan
 ![alt text](public/img/Dashboard_Admin_tableKendaraan.PNG?raw=true)
+
+##Dashboard Admin Table Pegawai
+![alt text](public/img/Dashboard_Admin_tablePegawai.PNG?raw=true)
+
+##Dashboard Admin Table Supplier
+![alt text](public/img/Dashboard_Admin_tableSupplier.PNG?raw=true)
+
+##Dashboard Admin Table Barang
+![alt text](public/img/Dashboard_Admin_tableBarang.PNG?raw=true)
